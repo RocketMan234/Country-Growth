@@ -7,11 +7,14 @@ us = data[data.country == 'United States']
 china = data[data.country == 'China']
 india = data[data.country == 'India']
 
+countries = [us, china, india]
+
 plt.title('Relative Population Growth')
 plt.xlabel('Year')
 plt.ylabel('Population Relative to 1953')
-plt.plot(us.year, us.population / us.population.iloc[0])
-plt.plot(china.year, china.population / china.population.iloc[0])
-plt.plot(india.year, india.population / india.population.iloc[0])
 plt.legend(['United States', 'China', 'India'])
+
+for country in countries:
+    plt.plot(country.year, country.population / country.population.iloc[0])
+    
 plt.show()
